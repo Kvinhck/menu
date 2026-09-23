@@ -1,0 +1,98 @@
+/* ---------- Base ---------- */
+body {
+    margin: 0;
+    padding: 40px 20px;
+    background-color: #03061a;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    background-image: url(fondo.jpg);
+    background-repeat: no-repeat; 
+    background-size: cover;        
+    background-position: center;  
+    background-attachment: fixed;
+    min-height: 100vh;        
+    margin: 0;
+}
+
+/* ---------- Bloques ---------- */
+.bloque {
+    max-width: 720px;
+    margin: 0 auto 32px auto;
+    padding: 28px 32px;
+    box-sizing: border-box;
+
+    /* Azul eléctrico oscuro */
+    background: linear-gradient(145deg, #0c24a8 0%, #08157a 55%, #050c4d 100%);
+
+    /* Marco blanco brillante con esquinas de 40px */
+    border: 3px solid #ffffff;
+    border-radius: 40px;
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.7),
+        0 0 22px rgba(255, 255, 255, 0.35),
+        0 10px 30px rgba(0, 0, 0, 0.6);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+/* ---------- Animación al pasar el mouse ---------- */
+.bloque:hover {
+    transform: translateY(-10px) scale(1.03);
+    background: linear-gradient(145deg, #1438e0 0%, #0c1fa0 55%, #071068 100%);
+    box-shadow:
+        0 0 14px rgba(255, 255, 255, 1),
+        0 0 40px rgba(255, 255, 255, 0.6),
+        0 0 70px rgba(60, 110, 255, 0.7),
+        0 22px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- Contenido de los bloques ---------- */
+.bloque h4 {
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+}
+
+.bloque h4:last-child {
+    margin-bottom: 0;
+}
+
+.bloque img {
+    display: block;
+    margin-top: 12px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+
+.bloque a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.bloque a:hover {
+    color: #9fc0ff;
+}
+
+/* ---------- Accesibilidad ---------- */
+.bloque a:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bloque,
+    .bloque:hover {
+        transition: none;
+        transform: none;
+    }
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 480px) {
+    .bloque {
+        padding: 22px 22px;
+    }
+}
