@@ -1,11 +1,11 @@
-/* ---------- Base ---------- */
 body {
     margin: 0;
-    padding: 40px 20px;
-    background-color: #03061a;
+    padding: 40px 20px;              
+    background-color: #03061a;      
     font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff;
-    background-image: url(fondo.jpg);
+    color: #ffffff;                  
+
+    background-image: url(fondoo.jpg);
     background-repeat: no-repeat; 
     background-size: cover;        
     background-position: center;  
@@ -14,22 +14,34 @@ body {
     margin: 0;
 }
 
-/* ---------- Bloques ---------- */
+.opc{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;                      
+    max-width: 720px;                
+    margin: 0 auto;                  
+}
+
+.opc .bloque {
+    flex: 1;
+    margin: 0 0 32px 0;
+}
+
 .bloque {
-    max-width: 720px;
-    margin: 0 auto 32px auto;
-    padding: 28px 32px;
+    max-width: 720px;                
+    margin: 0 auto 32px auto;        
+    padding: 28px 32px;             
     box-sizing: border-box;
+    text-align: center;
 
-    /* Azul eléctrico oscuro */
-    background: linear-gradient(145deg, #0c24a8 0%, #08157a 55%, #050c4d 100%);
+    background: linear-gradient(145deg, #1c1c1c 0%, #0a0a0a 55%, #000000 100%);
 
-    /* Marco blanco brillante con esquinas de 40px */
     border: 3px solid #ffffff;
     border-radius: 40px;
+
     box-shadow:
-        0 0 8px rgba(255, 255, 255, 0.7),
-        0 0 22px rgba(255, 255, 255, 0.35),
+        0 0 8px rgba(114, 56, 56, 0.7),
+        0 0 22px rgba(166, 8, 184, 0.921),
         0 10px 30px rgba(0, 0, 0, 0.6);
 
     transition:
@@ -38,33 +50,49 @@ body {
         background 0.35s ease;
 }
 
-/* ---------- Animación al pasar el mouse ---------- */
+
 .bloque:hover {
     transform: translateY(-10px) scale(1.03);
-    background: linear-gradient(145deg, #1438e0 0%, #0c1fa0 55%, #071068 100%);
+    background: linear-gradient(145deg, #2e2e2e 0%, #141414 55%, #050505 100%);
+
     box-shadow:
         0 0 14px rgba(255, 255, 255, 1),
-        0 0 40px rgba(255, 255, 255, 0.6),
-        0 0 70px rgba(60, 110, 255, 0.7),
+        0 0 40px rgb(255, 1, 1),
+        0 0 70px rgba(23, 37, 119, 0.35),   
         0 22px 40px rgba(0, 0, 0, 0.7);
 }
 
-/* ---------- Contenido de los bloques ---------- */
+
+
 .bloque h4 {
-    margin: 0 0 12px 0;
-    line-height: 1.5;
+    margin: 0 0 12px 0;             
+    line-height: 1.5;              
 }
 
 .bloque h4:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0;                
+}
+
+.bloque h4:first-child {
+    font-size: 1.5rem;
+}
+
+.bloque h4:last-child {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #d9d9d9;
 }
 
 .bloque img {
     display: block;
     margin-top: 12px;
+    margin-left: auto;              
+    margin-right: auto;              
     border-radius: 50%;
     border: 2px solid #ffffff;
 }
+
 
 .bloque a {
     color: #ffffff;
@@ -72,10 +100,44 @@ body {
 }
 
 .bloque a:hover {
-    color: #9fc0ff;
+    color: #9fc0ff;                
 }
 
-/* ---------- Accesibilidad ---------- */
+
+
+.bloque-dividido {
+    display: flex;                   
+    padding: 0;                    
+}
+
+.bloque-dividido .mitad {
+    flex: 1;                         
+    padding: 28px 32px;
+    box-sizing: border-box;
+}
+
+
+.bloque-dividido .mitad + .mitad {
+    border-left: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+
+.bloque .icono-juego {
+    margin: 0 auto 12px auto;       
+    border-radius: 24px;             
+    border: 2px solid #ffffff;
+    cursor: pointer;                 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.bloque .icono-juego:hover {
+    transform: scale(1.15) rotate(-6deg);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.9);
+}
+
+
+
 .bloque a:focus-visible {
     outline: 3px solid #ffffff;
     outline-offset: 4px;
@@ -84,15 +146,39 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
     .bloque,
-    .bloque:hover {
+    .bloque:hover,
+    .bloque .icono-juego,
+    .bloque .icono-juego:hover {
         transition: none;
         transform: none;
     }
 }
 
-/* ---------- Móvil ---------- */
+
+
 @media (max-width: 480px) {
     .bloque {
         padding: 22px 22px;
+    }
+
+    .bloque-dividido {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .bloque-dividido .mitad {
+        padding: 22px 22px;
+    }
+
+    .bloque-dividido .mitad + .mitad {
+        border-left: none;
+        border-top: 2px solid rgba(255, 255, 255, 0.6);
+    }
+}
+
+@media (max-width: 640px) {
+    .opc {
+        flex-direction: column;
+        gap: 0;
     }
 }
